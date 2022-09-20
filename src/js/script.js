@@ -28,6 +28,7 @@ function main() {
 
   scene.add(cube);
   renderer.render(scene, camera);
+  console.log('render');
 }
 
 main();

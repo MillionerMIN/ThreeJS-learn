@@ -2,7 +2,7 @@
   "name": "ThreeJS-learn",
   "version": "1.0.0",
   "description": "tutorial learn library Three.js",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "start": "webpack serve",
     "build-dev": "webpack",

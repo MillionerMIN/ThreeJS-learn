@@ -23,7 +23,7 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
   },
-  entry: { bundle: path.resolve(__dirname, 'src/index.ts') },
+  entry: { bundle: path.resolve(__dirname, 'src/index.js') },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js',
@@ -133,9 +133,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'static/css/[name][contenthash].css',
     }),
-    new CopyPlugin({
-      patterns: [{ from: 'public', to: '' }],
-    }),
+    // new CopyPlugin({
+    //   patterns: [{ from: 'public', to: '' }],
+    // }),
     new FriendlyErrorsWebpackPlugin(),
   ],
   resolve: {
