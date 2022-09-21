@@ -5,14 +5,13 @@
 
 html,
 body {
-  height: 100vh;
+  height: 100%;
   font-family: 'Poppins';
-  background: #333131;
+  font-size: 1em;
 }
 
-// #c {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   outline: none;
-// }
+#c {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

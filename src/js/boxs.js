@@ -34,8 +34,8 @@ function main() {
 
   const cubes = [
     makeInstance(geometry, 0x00ab55, 0),
-    makeInstance(geometry, 0x8844aa, -2),
-    makeInstance(geometry, 0xaa8844, 2),
+    makeInstance(geometry, 0xff4842, -2),
+    makeInstance(geometry, 0x1890ff, 2),
   ];
 
   const color = 0xffffff;
@@ -46,10 +46,26 @@ function main() {
 
   scene.add(cubes);
   renderer.render(scene, camera);
-  console.log('render');
+
+  function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const pixelRatio = window.devicePixelRatio;
+    const width = (canvas.clientWidth * pixelRatio) | 0;
+    const height = (canvas.clientHeight * pixelRatio) | 0;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
+  }
 
   function render(time) {
     time *= 0.001;
+    if (resizeRendererToDisplaySize(renderer)) {
+      const canvas = renderer.domElement;
+      camera.aspect = canvas.clientWidth / canvas.clientHeight;
+      camera.updateProjectionMatrix();
+    }
 
     cubes.forEach((cube, ndx) => {
       const speed = 1 + ndx * 0.1;
@@ -60,7 +76,9 @@ function main() {
     renderer.render(scene, camera);
     requestAnimationFrame(render);
   }
+
   requestAnimationFrame(render);
+  console.log('render');
 }
 
 main();
